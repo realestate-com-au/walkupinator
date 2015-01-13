@@ -18,10 +18,10 @@ admins = {
 while True: 
 	# saw this used online, will come in handy 
 	def prompt(prompt):
-		return raw_input(prompt)
+		return raw_input(prompt).rstrip()
 
 	# open users file in read mode
-	users = open("../userid_pan.csv","r")
+	users = open("userid_pan.csv","r")
 
 	# user input
 	card = str(prompt("Swipe your card: "))
