@@ -4,7 +4,7 @@ Minimum Python Version: 2.7.3
 
 Requirements: 
 
-*Zendesk API Key
+* Zendesk API Key
     
 * Zendesk API user email
 

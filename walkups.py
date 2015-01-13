@@ -7,15 +7,15 @@ import requests
 # import api and agent data from data.json
 jsondata = json.load(open("data.json"))
 agents = jsondata['agents']
-# open users file
+# open users file in read mode
 users = open("userid_pan.csv","r")
 
 while 1: 
+    users.seek(0,0) 
     def prompt(prompt):
         return raw_input(prompt).rstrip()
 
-    # open users file in read mode
-
+    
     # user input
     card = str(prompt("Swipe your card: "))
     card = card[0:20]
