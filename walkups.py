@@ -27,7 +27,6 @@ while True:
 	card = str(prompt("Swipe your card: "))
 	card = card[0:20]
 	print "Your card number is " + card + "!"
-	# Fix this to break if an admin swipes #
 	
 	if card in admins:
 		print "Tickets will now be assigned to: " + admins[card]['name']
