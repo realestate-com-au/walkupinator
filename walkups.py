@@ -53,4 +53,5 @@ while True:
 
         # Do the http POST request
 
-        response = requests.post(url, data=payload, auth=("***REMOVED***/token",token), headers=headers)
+        response = requests.post(url, data=payload, auth=(jsondata['api-email']
+            + "/token",token), headers=headers)
