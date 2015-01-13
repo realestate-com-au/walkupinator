@@ -1,4 +1,4 @@
-# walkups
+# Walkups
 
 Minimum Python Version: 2.7.3
 
@@ -16,6 +16,7 @@ Requirements:
         email,firstname,lastname,card PAN
     
 Modules that need to be installed:
+    
     requests
 
 
