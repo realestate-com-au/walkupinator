@@ -7,14 +7,14 @@ import requests
 # import api and agent data from data.json
 jsondata = json.load(open("data.json"))
 agents = jsondata['agents']
+# open users file
+users = open("userid_pan.csv","r")
 
-while True: 
-    
+while 1: 
     def prompt(prompt):
         return raw_input(prompt).rstrip()
 
     # open users file in read mode
-    users = open("userid_pan.csv","r")
 
     # user input
     card = str(prompt("Swipe your card: "))
@@ -24,7 +24,6 @@ while True:
     if card in agents:
         print "Tickets will now be assigned to: " + agents[card]['name']
         assignee = agents[card]['id']
-        continue
     else:
         # reads in the csv
         reader = csv.reader(users, delimiter=',')
@@ -35,6 +34,7 @@ while True:
                 print "Your name is " + username
                 break
         else:
+            print "You are not registered, please register at the printers"
             continue
         subject = "New Walkup request from: " + username
         body = "This is an auto-generated ticket from the Innovation Hub"
