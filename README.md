@@ -3,6 +3,7 @@
 Minimum Python Version: 2.7.3
 
 Requirements:
+    
     * Zendesk API Key
     * Zendesk API user email
     * Agent Id's for the assignees
@@ -11,14 +12,17 @@ Requirements:
         email,firstname,lastname,card PAN
     * RFID card reader
 Modules that need to be installed:
+    
     * requests
 
 Config:
+    
     * Run pip -r requirements.txt
     * Input the above information into the respective spots in the data.json
       file.
 
 Usage:
+    
     * Run the script
     * Scan a card. 
     * If the card is a user it will send a request to zendesk, if the card 
