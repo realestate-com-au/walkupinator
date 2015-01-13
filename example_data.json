@@ -1,0 +1,10 @@
+{
+    "__comment": "Replace all text inside <> with your information",
+    "agents":
+    {   
+        "Card PAN: {"name": "<Name>", "id" : "<AgentID>"},
+    },
+    "api-token": "<yourapitoken>",
+    "api-email": "<APIEmailAddress>",
+    "api-url": "<YourZendeskURL>.zendesk.com/api/v2/tickets.json"
+}
