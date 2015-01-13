@@ -3,7 +3,7 @@
 import csv
 import json
 import requests
-
+assignee = ""
 # import api and agent data from data.json
 jsondata = json.load(open("data.json"))
 agents = jsondata['agents']
