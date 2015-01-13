@@ -9,7 +9,7 @@ jsondata = json.load(open("data.json"))
 agents = jsondata['agents']
 # open users file in read mode
 users = open("userid_pan.csv","r")
-
+walkupyn = jsondata['walkupyn']
 while 1: 
     users.seek(0,0) 
     def prompt(prompt):
@@ -40,7 +40,15 @@ while 1:
         body = "This is an auto-generated ticket from the Innovation Hub"
 
         # package data in a dictionary matching expected JSON
-        data = {'ticket': {'subject': subject, 'comment': {'body': body}, 'requester' : row[0], 'assignee_id': assignee}}
+        data = { 
+        'ticket':{
+            'subject': subject, 'comment':{
+                'body': body},
+                'requester' : row[0], 
+                'assignee_id': assignee,
+                'custom_fields': [{'id':walkupyn, 'value': 'yes'}]
+                }
+        }
 
         # encode as JSON
         payload = json.dumps(data)
