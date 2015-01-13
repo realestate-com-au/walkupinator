@@ -4,8 +4,8 @@ import csv
 import json
 import requests
 assignee = ""
-admins = {
-'16146249054714897575': {'name' : 'Jarid', 'id' : ***REMOVED***},
+agents = {
+'16146249054714897575': {'name': 'Jarid', 'id' : ***REMOVED***},
 '16146249067602143061': {'name': 'Shaun', 'id': ***REMOVED***},
 '16146249067601913528': {'name': 'Ali', 'id': ***REMOVED***},
 '16146249054714919423': {'name': 'Fabian', 'id': ***REMOVED***},
@@ -27,10 +27,10 @@ while True:
 	card = str(prompt("Swipe your card: "))
 	card = card[0:20]
 	print "Your card number is " + card + "!"
-	
-	if card in admins:
+    # checks if the card number is an assignee	
+	if card in agents:
 		print "Tickets will now be assigned to: " + admins[card]['name']
-		assignee = admins[card]['id']
+		assignee = agents[card]['id']
 		continue
 	else:
 		# reads in the csv
