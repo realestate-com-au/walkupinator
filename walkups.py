@@ -4,6 +4,7 @@ import csv
 import json
 import requests
 assignee = ""
+previouspan = ""
 # import api and agent data from data.json
 jsondata = json.load(open("data.json"))
 agents = jsondata['agents']
@@ -19,7 +20,10 @@ while 1:
     # user input
     card = str(prompt("Swipe your card: "))
     card = card[0:20]
-    
+    if previouspan != card:
+        previouspan = card
+    else:
+        continue
     # checks if the card number is an assignee	
     if card in agents:
         print "Tickets will now be assigned to: " + agents[card]['name']
@@ -42,12 +46,13 @@ while 1:
         # package data in a dictionary matching expected JSON
         data = { 
         'ticket':{
-            'subject': subject, 'comment':{
-                'body': body},
-                'requester' : row[0], 
-                'assignee_id': assignee,
-                'custom_fields': [{'id':walkupyn, 'value': 'yes'}]
-                }
+            'subject': subject, 
+            'comment':{'body': body},
+            'type': 'task',
+            'requester' : row[0], 
+            'assignee_id': assignee,
+            'custom_fields': [{'id':walkupyn, 'value': 'yes'}]
+            }
         }
 
         # encode as JSON
