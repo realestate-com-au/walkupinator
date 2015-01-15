@@ -16,15 +16,17 @@ db = jsondata['db']
 
 # connect to the database
 conn = pymssql.connect(server,user,passw,db)
+
 # create a cursor to run queries with
 c = conn.cursor(as_dict=True)
+
 # collect initial data
-users = c.execute("SELECT u.Email, u.FName, u.LName, p.PAN FROM BEARS_Users AS \
-u JOIN BEARS_UserPAN AS p on u.UserID = p.UserID")
+users = c.execute("SELECT u.Email, u.FName, u.LName, p.PAN " + 
+                    "FROM BEARS_Users " +  
+                    "AS u JOIN BEARS_UserPAN AS p on u.UserID = p.UserID")
+
 # import api and agent data from data.json
 agents = jsondata['agents']
-# open users file in read mode
-# users = open("userid_pan.csv","r")
 walkupyn = jsondata['walkupyn']
 while 1: 
     def prompt(prompt):

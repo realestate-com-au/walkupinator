@@ -12,7 +12,9 @@ Requirements:
 
 * Card numbers for assignees
 
-* CSV of user details. Similar format to:  email,firstname,lastname,card PAN
+* SQL Server database details with user details in the table, containing:  First
+  Name, Last Name, Email address, Card PAN
+    
 
 * RFID card reader
 
