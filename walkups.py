@@ -3,16 +3,30 @@
 import csv
 import json
 import requests
+import pymssql
+# bring in json data
+jsondata = json.load(open("data.json"))
 assignee = ""
 previouspan = ""
+# import sql server details from json
+server = jsondata['sqlserver']
+user = jsondata['username'] 
+passw = jsondata['password']
+db = jsondata['db']
+
+# connect to the database
+conn = pymssql.connect(server,user,passw,db)
+# create a cursor to run queries with
+c = conn.cursor(as_dict=True)
+# collect initial data
+users = c.execute("SELECT u.Email, u.FName, u.LName, p.PAN FROM BEARS_Users AS \
+u JOIN BEARS_UserPAN AS p on u.UserID = p.UserID")
 # import api and agent data from data.json
-jsondata = json.load(open("data.json"))
 agents = jsondata['agents']
 # open users file in read mode
-users = open("userid_pan.csv","r")
+# users = open("userid_pan.csv","r")
 walkupyn = jsondata['walkupyn']
 while 1: 
-    users.seek(0,0) 
     def prompt(prompt):
         return raw_input(prompt).rstrip()
 
@@ -30,10 +44,9 @@ while 1:
         assignee = agents[card]['id']
     else:
         # reads in the csv
-        reader = csv.reader(users, delimiter=',')
-        for row in reader:
-            if card == row[3]:
-                username = row[1] + " " + row[2]
+        for row in c:
+            if card == row['PAN']:
+                username = row['FName'] + " " + row['LName']
                 print "Your card number is " + card + "!"
                 print "Your name is " + username
                 break
@@ -49,7 +62,7 @@ while 1:
             'subject': subject, 
             'comment':{'body': body},
             'type': 'task',
-            'requester' : row[0], 
+            'requester' : row['Email'], 
             'assignee_id': assignee,
             'custom_fields': [{'id':walkupyn, 'value': 'yes'}]
             }
