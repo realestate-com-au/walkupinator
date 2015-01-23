@@ -53,15 +53,15 @@ while 1:
         print "Tickets will now be assigned to: " + agents[card]['name']
         assignee = agents[card]['id']
     else:
-        # reads in the csv
+        userexists = False
         for row in c:
             if card == row['PAN']:
                 username = row['FName'] + " " + row['LName']
                 print "Your card number is " + card + "!"
                 print "Your name is " + username
+                userexists = True
                 break
-        else:
-            userexists = False
+                
         if userexists == False:
             print "You are not registered, \nplease register at the printers"
             continue
