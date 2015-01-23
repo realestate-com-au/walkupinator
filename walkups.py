@@ -22,6 +22,9 @@ conn = pymssql.connect(server,user,passw,db)
 c = conn.cursor(as_dict=True)
 
 
+def prompt(prompt):
+    return raw_input(prompt).rstrip()
+
 def loaddata():
     c.execute("SELECT u.Email, u.FName, u.LName, p.PAN " + 
                     "FROM BEARS_Users " +  
@@ -29,9 +32,8 @@ def loaddata():
 # import api and agent data from data.json
 agents = jsondata['agents']
 walkupyn = jsondata['walkupyn']
+
 while 1: 
-    def prompt(prompt):
-        return raw_input(prompt).rstrip()
     loaddata()
     # Get the userdata from the database
     # user input
