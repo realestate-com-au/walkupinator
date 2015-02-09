@@ -8,7 +8,6 @@ import pymssql
 jsondata = json.load(open("data.json"))
 assignee = ""
 previouspan = ""
-userexists = True
 # import sql server details from json
 server = jsondata['sqlserver']
 user = jsondata['username'] 
@@ -42,6 +41,9 @@ while 1:
     if card == "reload":
         print "Loaded users from database"
         loaddata()
+        continue
+    if card == "16146249067602163752":
+        print "Stop it Branko!"
         continue
     if previouspan != card:
         previouspan = card
