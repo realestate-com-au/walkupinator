@@ -39,7 +39,7 @@ Usage:
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jarid Spokes
+Copyright (c) 2015 REA Group Ltd.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
