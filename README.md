@@ -1,5 +1,8 @@
 # Walkups
 
+#####For a demonstration of the Walkupinator in action, and a backstory to it's creation, check out:
+http://techblog.realestate.com.au/the-walkupinator-a-one-touch-ticket-logging-system/
+
 Minimum Python Version: 2.7.3
 
 Requirements: 
@@ -32,10 +35,6 @@ Usage:
 * Scan a card. 
     
 * If the card is a user it will send a request to zendesk, if the card  is an agent the script will assign all tickets going forward to that  agent.
-
-
-#####For a demonstration of the Walkupinator in action, and a backstory to it's creation, check out:
-http://techblog.realestate.com.au/the-walkupinator-a-one-touch-ticket-logging-system/
 
 
 The MIT License (MIT)
